@@ -4,6 +4,7 @@ var atob = require('atob');
 var LoginTask = require('../Controller/LoginTask');
 
 router.get('/signInController/:id', function (request, response, next) {
+    console.log('Access');
     response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     LoginTask.getSignInValidation(atob(request.params.id), atob(request.query.sendName), function (error, result) {
@@ -25,6 +26,7 @@ router.get('/signInController/:id', function (request, response, next) {
 router.get('/emailValidation/:id', function (request, response, next) {
     response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    console.log('Email Validation call')
     LoginTask.getValidateEmaild(request.params.id, function (error, result) {
         if (error) {
             // response.send(error);

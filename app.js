@@ -1,6 +1,7 @@
 var express = require("express");
 var cors = require('cors');
 var app = express();
+var dotenv = require('dotenv').config();
 app.use(cors());
 var bodyParser = require('body-parser');
 var LoginTask = require('./Route/LoginTask');
@@ -24,6 +25,6 @@ app.use('/KYCTask',KYCTask);
 app.use('/NotifyTask',NotifyTask);
 app.use('/PaymentRecievedTask',PaymentRecievedTask);
 app.use('/PackNTagImages', express.static('../PackNTagImages'));
-app.listen(8080, function () {
-    console.log('Express server is listening on port 8080');
+app.listen(process.env.PORT || 5000, function () {
+    console.log('Express server is listening on port ' + process.env.PORT );
 });
