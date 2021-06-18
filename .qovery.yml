@@ -1,0 +1,14 @@
+---
+application:
+  name: "travelappapi"
+  project: "TravelApp"
+  organization: "QoveryCommunity"
+databases:
+- type: "MYSQL"
+  name: "packntag_com"
+routers:
+- name: "main-travelappapi"
+  routes:
+  - application_name: "travelappapi"
+    paths:
+    - "/*"
